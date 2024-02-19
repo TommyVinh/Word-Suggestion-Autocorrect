@@ -1,4 +1,3 @@
-# from word_list import wordList
 def editDistance(strInput, word):
     m, n = len(strInput) + 1, len(word) + 1
     dp = [[0] * n for _ in range(m)]
@@ -12,6 +11,7 @@ def editDistance(strInput, word):
             else:
                 dp[i][j] = min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1])
                 if strInput[i - 1] != word[j - 1]: dp[i][j] += 1
+                    
     return dp[-1][-1] + len({char for char in strInput} ^ {char for char in word})
 
 
