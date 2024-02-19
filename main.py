@@ -12,7 +12,7 @@ def editDistance(strInput, word):
                 dp[i][j] = min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1])
                 if strInput[i - 1] != word[j - 1]: dp[i][j] += 1
                     
-    return dp[-1][-1] + len({char for char in strInput} ^ {char for char in word})
+    return dp[-1][-1] + len({char for char in strInput} ^ {char for char in word}) + abs(m-n)
 
 
 def similar(strInput, word):
